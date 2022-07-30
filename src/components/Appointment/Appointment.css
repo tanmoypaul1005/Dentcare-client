@@ -1,0 +1,21 @@
+.AppointmentCard{
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+padding: 1.5rem;
+width:20rem;
+height: 12rem; 
+font-size: 1.3rem;
+background: rgba(6, 163, 218, .7);
+margin:1rem;
+color: white;;
+font-weight: 600;
+}
+.Appointmentbody{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.heroheade {
+    background: linear-gradient(rgba(9, 30, 62, .85), rgba(9, 30, 62, .85)), url(http://localhost:7000/static/media/carousel-2.acebe08….jpg) center center no-repeat;
+    background-size: cover;
+    /* background-color: black; */
+}
