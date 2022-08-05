@@ -1,33 +1,22 @@
 import { DentalCheckupConstants } from "../Constants";
 
-const initState = {};
+const initState = {
+  checkup:''
+};
 export default (state = initState, action) => {
   switch (action.type) {
-    //Add Dental Checkup
-    case DentalCheckupConstants.ADD_DENTALCHECKUP_REQUEST:
+    // Get dentalCheckup
+    case DentalCheckupConstants.GET_CHECKUP_REQUEST:
       state = { ...state };
       break;
 
-    case DentalCheckupConstants.ADD_DENTALCHECKUP_SUCCESS:
-      state = { ...state };
+    case DentalCheckupConstants.GET_CHECKUP_SUCCESS:
+      state = { ...state,checkup:action.checkup};
       break;
 
-    case DentalCheckupConstants.ADD_DENTALCHECKUP_FAILURE:
+    case DentalCheckupConstants.GET_CHECKUP_FAILURE:
       state = { ...state };
       break;
-
-  //Get Dental Checkup
-      case DentalCheckupConstants.GET_DENTALCHECKUP_REQUEST:
-        state = { ...state };
-        break;
-  
-      case DentalCheckupConstants.GET_DENTALCHECKUP_SUCCESS:
-        state = { ...state };
-        break;
-  
-      case DentalCheckupConstants.GET_DENTALCHECKUP_FAILURE:
-        state = { ...state };
-        break;
   }
   return state;
 };

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
+
+.doctorimge{
+    width:25em;
+    height:27rem;
+}
+.DoctorProfileBody{
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 1rem
+}
+
+.DoctorProfiletext{
+    font-size:1.8rem;
+}

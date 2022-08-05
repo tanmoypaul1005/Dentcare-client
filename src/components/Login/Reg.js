@@ -63,7 +63,8 @@ function Reg() {
         </form>
         <div className="socials-wrapper">
           <header>
-            <h2>Login with your Social Account</h2>     </header>
+          <h2><a href="/login">Login with your Social Account</a></h2>  
+              </header>
           <ul>
           <li><a href="#" class="facebook"><FaFacebook /></a></li>
             <li><a href="#" class="twitter"><FaTwitter /></a></li>

@@ -5,7 +5,7 @@ const PrivateRoute = ({ children, ...rest }) => {
   const auth = useSelector((state) => state.auth.user);
   // console.log(auth);
   let location = useLocation();
-  if (auth.email || localStorage.getItem("token")) {
+  if (localStorage.getItem("token")) {
     return children;
   }
   return <Navigate to="/login" state={{ from: location }} />;

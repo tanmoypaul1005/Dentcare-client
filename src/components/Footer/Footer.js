@@ -3,7 +3,7 @@ import '../Css/Style.css';
 function Footer() {
     return (
         <div>
-               Footer Start 
+{/* Footer Start  */}
     <div className="container-fluid bg-dark text-light py-5 wow fadeInUp" data-wow-delay="0.3s" style={{}}>
         <div className="container pt-5">
             <div className="row g-5 pt-4">

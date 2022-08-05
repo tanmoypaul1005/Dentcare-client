@@ -1,5 +1,5 @@
 import AxiosIntance from "../../Helpers/AxiosIntance";
-import { AppointmentConstants } from "../Constants";
+import { AppointmentConstants, SearchAppointmentConstants } from "../Constants";
 import toast, { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,7 +26,6 @@ export const addAppointment = (data) => {
 
 
 export const getAppointment = (id) => {
- 
     return async (dispatch) => {
       try {
         dispatch({ type: AppointmentConstants.GET_APPOINTMENT_REQUEST });
@@ -46,3 +45,25 @@ export const getAppointment = (id) => {
     };
   };
   
+
+  export const SearchAppointment=(data)=>{
+    return async (dispatch)=>{
+    try {
+      dispatch({ type: SearchAppointmentConstants.SEARCH_APPOINTMENT_REQUEST });
+      const res=await AxiosIntance.post('/appointment/search',{data});
+      console.log(res);
+
+      if(res.status===200){
+        dispatch({ type: AppointmentConstants.GET_APPOINTMENT_SUCCESS,search:res.data.data });
+      }
+
+      if(res.status===500){
+        dispatch({ type: AppointmentConstants.GET_APPOINTMENT_FAILURE });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  };
+  
+

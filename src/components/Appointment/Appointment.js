@@ -3,49 +3,56 @@ import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addAppointment  } from "../../Redux/Actions/DentalCheckupAction";
 import { GetDoctor } from "../../Redux/Actions/DoctorAction";
-import toast, { Toaster } from 'react-hot-toast';
-import { getAppointment } from "../../Redux/Actions/AppointmentAction";
+import toast, { Toaster } from "react-hot-toast";
+import {getAppointment,addAppointment,} from "../../Redux/Actions/AppointmentAction";
 import TickMark from "../../img/tickmark.png";
-import './Appointment.css';
+import "./Appointment.css";
+
+
 function Appointment() {
-  const dispatch=useDispatch();
-  const auth=useSelector((state)=>state.auth);
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
   // console.log("Auth",auth)
 
-  const doctor=useSelector((state)=>state.doctor);
+  const doctor = useSelector((state) => state.doctor);
   // console.log(doctor.doctor);
 
-  const appointment=useSelector((state)=>state.appointment);
-  console.log(appointment.appointment)
+  const appointment = useSelector((state) => state.appointment);
+  // console.log(appointment.appointment);
+
   const [state, setstate] = useState({
-  doctor:'',
-  service:'',
-  })
+    doctor: "",
+    service: "",
+  });
   const handleInputs = (e) => {
     setstate({ ...state, [e.target.name]: e.target.value });
   };
 
   useEffect(() => {
-   dispatch(GetDoctor())
-   dispatch(getAppointment(auth.user._id))
+    dispatch(GetDoctor());
+    dispatch(getAppointment(auth.user._id));
   }, [dispatch]);
 
   const [value, onChange] = useState(new Date());
-  const date = value.toLocaleDateString()
+  const date = value.toLocaleDateString();
   console.log("Date", date);
 
-  const AddAppointmentuser=(e)=>{
-  e.preventDefault();
-  const data={date:date,doctor:state.doctor,service:state.service,user:auth.user._id}
-  dispatch(addAppointment(data));
-  console.log(state)
-  console.log(data);
-  }
+  const AddAppointmentuser = (e) => {
+    e.preventDefault();
+    const data = {
+      date: date,
+      doctor: state.doctor,
+      service: state.service,
+      user: auth.user._id,
+    };
+    dispatch(addAppointment(data));
+    console.log(state);
+    console.log(data);
+  };
   return (
     <div>
-           <Toaster />
+      <Toaster />
       {/* Full Screen Search Start  */}
       <div className="modal fade" id="searchModal">
         <div className="modal-dialog modal-fullscreen">
@@ -97,23 +104,28 @@ function Appointment() {
       </div>
       {/* Hero End  */}
 
+      {/* user Appointment List start */}
+      {appointment.appointment.length > 0 ? (
+        <div className="heroheade" style={{ textAlign: "center" }}>
+          <img style={{ width: "10rem", height: "10rem" }} src={TickMark} />
 
-      <div className="heroheade" style={{ textAlign:"center"}}>
-        <img style={{width:'10rem',height:'10rem'}} src={TickMark}/>
-      {appointment.appointment.length>0?(
-            appointment.appointment.map((item,index)=>(
-              <div className="Appointmentbody">
-                 <div className="AppointmentCard" key={item._id}>
-                  <p>{item.date}</p>
-                  <p>Doctor : {item.doctor.name}</p>
-                  <p>{item.service}</p>
-                 </div>
-              
+          {appointment.appointment.map((item, index) => (
+            <div className="Appointmentbody">
+              <div className="AppointmentCard" key={item._id}>
+                <p>{item.date}</p>
+                <p>Doctor : {item.doctor.name}</p>
+                <p>{item.service}</p>
               </div>
-            ))
-        ):''
-    }
-      </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
+      {/* user Appointment List End */}
+
+
+
 
       {/* Appointment Start  */}
       <div
@@ -157,12 +169,13 @@ function Appointment() {
                         name="doctor"
                       >
                         <option selected>Select Doctor</option>
-                              {doctor.doctor.length > 0 ? (
-                                    doctor.doctor.map((item, index) => (
-                                        <option key={item._id} value={item._id}>{item.name}</option>
-                                    ))
-                                ) : ''
-                                }
+                        {doctor.doctor.length > 0
+                          ? doctor.doctor.map((item, index) => (
+                              <option key={item._id} value={item._id}>
+                                {item.name}
+                              </option>
+                            ))
+                          : ""}
                       </select>
                     </div>
 
@@ -208,12 +221,13 @@ function Appointment() {
                         id="date1"
                         data-target-input="nearest"
                       >
-                    {/* <input type="text"
+                        {/* <input type="text"
                     className="form-control bg-light border-0 datetimepicker-input"
                     placeholder="Appointment Date" data-target="#date1" data-toggle="datetimepicker" style={{height: "55px"}} /> */}
-                    <div style={{backgroundColor:'white'}}><Calendar onChange={onChange} value={value} /></div>
-                   
-                    </div>
+                        <div style={{ backgroundColor: "white" }}>
+                          <Calendar onChange={onChange} value={value} />
+                        </div>
+                      </div>
                     </div>
                     {/* <div className="col-12 col-sm-6">
                       <div

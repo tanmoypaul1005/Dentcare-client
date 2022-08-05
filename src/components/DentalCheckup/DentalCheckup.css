@@ -1,0 +1,82 @@
+.DentalCheckup {
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    margin:1rem;
+    padding:1rem
+}
+
+.DentalCheckupImage{
+    width: 18rem;
+    height: 12rem;
+    transition: .5s;
+}
+.content{
+    text-align:center;
+    padding: 0.7rem;
+}
+
+.checkupcard{
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+   margin-bottom:3rem;
+   background-color: white;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.DentalCheckupbody{
+  background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #6bb1cc 62%, #cff171 75%, #f3a469 87%, #f7c978 100%);;
+  background-size: 400% 400%;
+  position: relative;
+  animation: animate 7.5s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@keyframes animate{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+
+.checkupappointmentcard{
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+padding: 1.5rem;
+/* width:20rem;
+height: 12rem;  */
+font-size: 1.3rem;
+background: rgba(25, 26, 24, 0.7);
+margin:1rem;
+color: white;;
+font-weight: 600;
+}
+
+.checkupappointment{
+  background: linear-gradient(-45deg, #80b13f 0%, #5a55ae 13%, #5fac7d 25%, #6aacae 38%, #5f5710 50%, #6bb1cc 62%, #cff171 75%, #f3a469 87%, #f7c978 100%);;
+  background-size: 400% 400%;
+  position: relative;
+  animation: animate 7.5s ease-in-out infinite;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}

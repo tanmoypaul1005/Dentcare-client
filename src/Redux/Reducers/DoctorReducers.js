@@ -17,6 +17,20 @@ export default (state=initState, action) => {
       case DoctorConstants.GET_DOCTOR_FAILURE:
         state = { ...state };
         break;
+
+
+      //Doctor Profile
+      case DoctorConstants.DOCTOR_PROFILE_FAILURE:
+        state = { ...state };
+        break;
+  
+      case DoctorConstants.DOCTOR_PROFILE_SUCCESS:
+        state = { ...state,doctorprofile:action.doctorprofile};
+        break;
+  
+      case DoctorConstants.DOCTOR_PROFILE_FAILURE:
+        state = { ...state };
+        break;
   }
   return state;
 };

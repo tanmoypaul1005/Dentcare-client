@@ -1,7 +1,8 @@
-import { AppointmentConstants } from "../Constants";
+import { AppointmentConstants, SearchAppointmentConstants } from "../Constants";
 const initState = {
   msg: "",
   appointment:"",
+  search:''
 };
 
 export default (state = initState, action) => {
@@ -29,6 +30,21 @@ export default (state = initState, action) => {
         break;
   
       case AppointmentConstants.GET_APPOINTMENT_FAILURE:
+        state = { ...state };
+        break;
+
+
+
+      //Search Appointment
+      case SearchAppointmentConstants.SEARCH_APPOINTMENT_REQUEST:
+        state = { ...state };
+        break;
+  
+      case SearchAppointmentConstants.SEARCH_APPOINTMENT_SUCCESS:
+        state = { ...state, search:action.search};
+        break;
+  
+      case SearchAppointmentConstants.SEARCH_APPOINTMENT_FAILURE:
         state = { ...state };
         break;
   }

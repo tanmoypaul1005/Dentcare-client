@@ -15,11 +15,15 @@ import Testimonial from './components/Testimonial/Testimonial';
 import NavBar from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-
+import DoctorProfile from './components/DoctorProfile/DoctorProfile';
+import DentalCheckup from './components/DentalCheckup/DentalCheckup';
+import ScrollToTop from "react-scroll-to-top";
+import Doctor from './components/Doctor/Doctor';
 function App() {
   return (
-   <div>
+   <div style={{ marginTop: "0" }}>
    <BrowserRouter>
+   <ScrollToTop smooth />
    <NavBar/>
       <Routes>
       <Route path="/" element={<Home/>} />
@@ -32,6 +36,10 @@ function App() {
       <Route path="/team" element={<Team/>} />
       <Route path="/price" element={<Price/>} />
       <Route path="/testimonial" element={<Testimonial/>} />
+      <Route path="/doctor/:id" element={<PrivateRoute><DoctorProfile/></PrivateRoute>} />
+      <Route path="/doctor" element={<Doctor/>} />
+      <Route path="/dentalCheckup" element={<PrivateRoute><DentalCheckup/></PrivateRoute>} />
+      {/* <Route path="/search/appointment" element={<SearchAppointment/>} /> */}
       </Routes>
       <Footer/>
     </BrowserRouter >
