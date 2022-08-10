@@ -45,9 +45,10 @@ function Login() {
             <input className="loginbutton" type="submit" value="Login to your Account!"></input>
           </div>
         </form>
+        <p><a href="/registrar">create a New Account</a></p>
         <div className="socials-wrapper">
           <header>
-           <h2><a href="/registrar">Login with your Social Account</a></h2>
+         
             </header>
           <ul>
           <li><a href="#" className="facebook"><FaFacebook /></a></li>

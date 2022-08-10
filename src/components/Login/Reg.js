@@ -61,6 +61,7 @@ function Reg() {
             <input className="loginbutton" type="submit" value="Login to your Account!"></input>
           </div>
         </form>
+        <p><a href="/login">Login Your Account</a></p>
         <div className="socials-wrapper">
           <header>
           <h2><a href="/login">Login with your Social Account</a></h2>  
